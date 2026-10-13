@@ -1,0 +1,444 @@
+/* =========================================
+   ROOT
+========================================= */
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #101010;
+    background: #ffffff;
+
+    /* Typography */
+    --font-size: 32px;
+    --line-height: 1.45;
+
+    /* Colours */
+    --black: #101010;
+    --red: #FF09D6;
+    --blue: #0EB5BE;
+    --purple: #8800FF;
+    --green: #00E279;
+    --yellow: #E5B800;
+    --crimson: #FF09D6;
+}
+
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    color: var(--black);
+    background: #ffffff;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+/* =========================================
+   STAGE
+========================================= */
+
+.stage {
+    width: 100%;
+
+    height: 100vh;
+    height: 100dvh;
+
+    padding: clamp(20px, 3.2vw, 58px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ABSTRACT
+========================================= */
+
+.abstract {
+    width: 100%;
+    max-width: 1800px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    font-weight: 400;
+
+    color: var(--black);
+
+    overflow-wrap: break-word;
+    word-break: normal;
+
+    flex-shrink: 0;
+
+    visibility: hidden;
+}
+
+.abstract.ready {
+    visibility: visible;
+}
+
+
+/* =========================================
+   PARAGRAPH SPACING
+========================================= */
+
+.abstract p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+.abstract strong {
+    font-weight: 700;
+}
+
+.abstract em {
+    font-style: italic;
+}
+
+/* Consistent line height */
+
+.abstract span:not(.media),
+.abstract strong,
+.abstract em,
+.abstract a:not(.media),
+.abstract u {
+    line-height: inherit;
+}
+
+
+/* =========================================
+   TEXT COLOURS
+========================================= */
+
+.abstract .red,
+.abstract .red strong,
+.abstract .red em {
+    color: var(--red);
+}
+
+.abstract .blue,
+.abstract .blue strong,
+.abstract .blue em {
+    color: var(--blue);
+}
+
+.abstract .purple,
+.abstract .purple strong,
+.abstract .purple em {
+    color: var(--purple);
+}
+
+.abstract .green,
+.abstract .green strong,
+.abstract .green em {
+    color: var(--green);
+}
+
+.abstract .yellow,
+.abstract .yellow strong,
+.abstract .yellow em {
+    color: var(--yellow);
+}
+
+.abstract .crimson,
+.abstract .crimson strong,
+.abstract .crimson em {
+    color: var(--crimson);
+}
+
+
+/* =========================================
+   REFERENCES
+========================================= */
+
+.reference {
+    white-space: normal;
+
+    font-family: Georgia, "Times New Roman", Times, serif;
+
+    font-size: 1em;
+    line-height: inherit;
+
+    font-weight: 400;
+    font-style: normal;
+
+    color: var(--black);
+}
+
+
+/* =========================================
+   UNDERLINED TEXT
+========================================= */
+
+.abstract u {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.12em;
+
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* =========================================
+   INLINE MEDIA
+========================================= */
+
+.media {
+    display: inline-flex;
+    position: relative;
+
+    height: 1.35em;
+    max-width: 12em;
+
+    align-items: center;
+    justify-content: center;
+
+    vertical-align: -0.25em;
+
+    margin: 0 0.10em;
+
+    cursor: zoom-in;
+
+    text-decoration: none;
+    color: inherit;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   IMAGES AND VIDEOS
+========================================= */
+
+.media img,
+.media video {
+    display: block;
+
+    height: 100%;
+    width: auto;
+
+    max-width: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   AUDIO
+========================================= */
+
+.media.audio {
+    height: 1.10em;
+    max-width: 10em;
+
+    vertical-align: -0.17em;
+
+    cursor: auto;
+}
+
+.media audio {
+    display: block;
+
+    width: 9.7em;
+    height: 1.10em;
+}
+
+
+/* =========================================
+   MEDIA PREVIEW OVERLAY
+========================================= */
+
+.preview {
+    position: fixed;
+    inset: 0;
+
+    z-index: 50;
+
+    display: none;
+    pointer-events: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: clamp(20px, 3.2vw, 58px);
+
+    background: rgba(255, 255, 255, 0.80);
+}
+
+.preview.active {
+    display: flex;
+}
+
+
+/* =========================================
+   PREVIEW CONTENT
+========================================= */
+
+.preview img,
+.preview video {
+    display: block;
+
+    max-height: 100%;
+    max-width: 100%;
+
+    height: auto;
+    width: auto;
+
+    object-fit: contain;
+
+    box-shadow: 0 8px 45px #0002;
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.media:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 701px) {
+
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .stage {
+        height: 100dvh;
+        min-height: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+    }
+
+    .abstract {
+        flex-shrink: 0;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    :root {
+        --font-size: clamp(20px, 4.5vw, 26px);
+        --line-height: 1.55;
+    }
+
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .stage {
+        width: 100%;
+
+        height: auto;
+        min-height: 100dvh;
+
+        padding: 20px 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: visible;
+    }
+
+    .abstract {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+
+        flex-shrink: 1;
+        visibility: visible;
+    }
+
+    .media {
+        height: 1.30em;
+        vertical-align: -0.24em;
+    }
+
+    .media.audio {
+        height: 1.10em;
+        vertical-align: -0.17em;
+    }
+
+    .media audio {
+        height: 1.10em;
+    }
+
+    .preview {
+        padding: 14px;
+    }
+
+    .preview img,
+    .preview video {
+        max-height: calc(100dvh - 28px);
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .preview {
+        transition: none;
+    }
+
+}
